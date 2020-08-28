@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INHA</title>
+    <link rel = "stylesheet" type='text/css' href='mystyle.css' />
+    <script>
+        function search(){
+            var sear = document.getElementById("search_box").value;
+
+            alert(sear+"을 검색하였습니다.");
+        }
+        function login(){
+            var id = document.getElementById("id").value;
+            var pwd = document.getElementById("pwd").value;
+            
+            if(id == "12201744"){
+                if(pwd == "0518"){
+                    document.getElementById('id').style.visibility = 'hidden';
+                    document.getElementById('pwd').style.visibility = 'hidden';
+                    document.getElementById('login').style.visibility = 'hidden';
+                
+                    document.getElementById('print_id').innerHTML = id + "님"
+                }
+            }
+            else{alert("아이디 또는 비밀번호를 잘못입력하였습니다.")};
+        }
+
+        sign = 1;
+
+
+        function print1(){
+            sign=1;
+            document.getElementById('info').innerText = "코로나 바이러스 - 19 예방 수칙";
+        }
+        function print2(){
+            sign=2;
+            document.getElementById('info').innerText = "2020-2학기 대학 재학생 등록";
+        }
+        function print3(){
+            sign=3;
+            document.getElementById('info').innerText = "코로나 19 스트레스 극복 심리 상담";
+        }
+
+        function print_info(){
+            setInterval(()=>{
+            if(sign==1)print2();
+            else if(sign==2)print3();
+            else{print1();}},2000);
+        }
+    </script>
+</head>
+<body onload='print_info()'>
+    <header id='info'></header>
+    <div id='cate'>
+        <button onclick='location.href="20200827_web_edu.html"' id='btn1'>교육</button>
+        <button id='btn2'>입학 / 취업</button>
+        <button id='btn3'>산학 / 연구</button>
+        <button id='btn4'>학사</button>
+        <button id='btn5'>대학생활</button>
+    </div>
+
+    <div id='search'>
+        <input id='search_box' size=20 type='text' placeholder=" 검색할 내용" />
+        <button onclick="search()" id="seach_btn">검색</button>
+        <input id="id" size=18 type="text"/>
+        <input id='pwd' size=18 type='password'/>
+        <button onclick='login()' id="login">로그인</button>
+    </div>
+
+    <menu id='print_id'></menu>
+
+    <main>
+        <img src="inha.png" style='width: 70%'/>
+    </main>
+</body>
+</html>
